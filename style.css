@@ -1,0 +1,320 @@
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+ul,
+ol,
+li{
+    list-style: none;
+}
+img{
+    vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-weight: inherit;
+    font-size: inherit;
+}
+html,
+body{
+    line-height: 1;
+    font-size: 16px;
+    color: black;
+    font-family: 'M PLUS 2', sans-serif;
+    background-color: rgb(214, 212, 212);
+}
+#root{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    padding-bottom: 60px;
+}
+#form, #education-form, #work-form{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+#form.active, .names, #education-form.active, #work-form.active{
+    position: static;
+    max-width: 700px;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+#education-form, #work-form{
+    box-sizing: content-box;
+    border-top: 2px solid rgb(107, 107, 107);
+    border-bottom: 2px solid rgb(107, 107, 107);
+}
+#work-form{
+    border-top: none;
+}
+#education-form h1, #work-form h1{
+    width: 100%;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: left;
+    padding-bottom: 5px;
+}
+#education-form ul, #work-form ul{
+    margin-top: 20px;
+}
+#education-form li, #work-form li{
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: rgb(65, 65, 65);
+}
+.far.fa-trash-alt{
+    cursor: pointer;
+    transition: 0.1s;
+}
+.far.fa-trash-alt:hover{
+    color: red;
+    transform: scale(1.1);
+}
+.names{
+    padding: 0;
+    align-items: flex-start;
+}
+#form label, #education-form label, #work-form label{
+    font-weight: 700;
+    font-size: 20px;
+    position: relative;
+    top: 10px;
+}
+.general-info-top-part{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+#photo{
+    display: none;
+}
+#photo-input{
+    width: 200px;
+    height: 200px;
+    background-image: url(./images/choosePicIcon.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    box-shadow: -4px 4px rgb(107, 107, 107);
+}
+#photo-input::before{
+    content: "Choose photo";
+    color: rgb(107, 107, 107);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+#photo-input:hover::before{
+    opacity: 1;
+}
+.input-field, #add-education, #add-work{
+    box-shadow: -4px 4px rgb(107, 107, 107);
+    font-size: 25px;
+    height: 40px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    outline: none;
+}
+#add-education, #add-work{
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s;
+}
+#add-education:hover, #add-work:hover{
+    transform: translate(-4px, 4px);
+    box-shadow: none;
+}
+#preview-button{
+    position: fixed;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, 0px);
+    width: 150px;
+    height: 35px;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(69, 221, 102);
+    box-shadow: -4px 4px rgb(107, 107, 107);
+    color: white;
+    cursor: pointer;
+    transition: 0.1s;
+}
+#preview-button:hover{
+    transform: translate(calc(-50% - 4px), 4px);
+    box-shadow: none;
+}
+.cv-form{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+.cv-form.active{
+    position: relative;
+    width: 800px;
+    max-width: 98vw;
+    min-height: 660px;
+    box-shadow: 0px 0px 30px rgba(65, 65, 65, 0.3);
+    opacity: 1;
+    visibility: visible;
+}
+.grey-part{
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 33%;
+    background-color: rgb(65, 65, 65);
+}
+.white-part{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow: auto;
+    width: 67%;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+}
+.white-part div{
+    height: 50%;
+    overflow: auto;
+    max-width: 100%;
+}
+.white-part h1{
+    padding-left: 20px;
+    padding-bottom: 3px;
+    width: 100%;
+    border-bottom: 2px solid rgb(84, 157, 241);
+    color: rgb(84, 157, 241);
+    font-size: 30px;
+    font-weight: 700;
+}
+.white-part ul{
+    list-style: disc;
+    padding-left: 20px;
+}
+.white-part li{
+    list-style: disc;
+    margin: 5px;
+    font-size: 20px;
+    color: rgb(65, 65, 65);
+}
+.blue-part{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+    min-height: 50%;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(84, 157, 241);
+    color: white;
+}
+#photo-preview{
+    position: relative;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px rgb(65, 65, 65);
+}
+.general-info-preview{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: right;
+}
+.name-preview{
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+}
+@media (max-width: 600px){
+    #photo-input{
+        width: 150px;
+        height: 150px;
+    }
+    .white-part{
+        width: 100%;
+        align-items: center;
+        min-height: 100%;
+        gap: 20px;
+    }
+    .name-preview{
+        color: rgb(84, 157, 241);
+        font-size: 26px;
+    }
+    .white-part div{
+        height: auto;
+        overflow: hidden;
+    }
+    .general-info-preview{
+        align-items: center;
+    }
+}
+@media (max-width: 540px){
+    #photo-input{
+        width: 220px;
+        height: 220px;
+    }
+    .general-info-top-part{
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .names{
+        width: 100%;
+        align-items: center;
+    }
+}
