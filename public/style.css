@@ -188,6 +188,7 @@ body{
 }
 .cv-form.active{
     position: relative;
+    display: flex;
     width: 800px;
     max-width: 98vw;
     min-height: 660px;
@@ -196,7 +197,7 @@ body{
     visibility: visible;
 }
 .grey-part{
-    position: absolute;
+    position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -211,7 +212,7 @@ body{
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     height: 100%;
